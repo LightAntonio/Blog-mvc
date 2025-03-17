@@ -15,6 +15,17 @@ blog-mvc/
 │       ├── listar.php      # Exibe lista de posts
 │       ├── ver.php         # Exibe um post individual
 │       └── criar.php       # Formulário para criar post
+    views/postsCategoria/
+        ├── tecnologia/
+        ├── saude/
+        └── viagens/
+    views/postsAno/
+        ├── 2025/
+        │   ├── janeiro/
+        │   ├── fevereiro/
+        │   └── marco/
+        └── 2026/
+
 ├── controllers/
 │   ├── PostController.php   # Gerencia lógica dos posts
 │   ├── UsuarioController.php # Gerencia lógica dos usuários
@@ -25,18 +36,17 @@ blog-mvc/
 │   └── assets/
 │       ├── css/             # Arquivos de estilo
 │       └── js/              # Scripts JavaScript
+        ├── imagens/
+        ├── videos/
+        └── documentos/
 ├── routes.php                # Gerenciamento de rotas
 └── .htaccess                 # Configuração de URL amigável (para Apache)
 # Detalhes de Cada Componente
 1. Banco de Dados
 O banco pode conter as seguintes tabelas principais:
-
 usuarios: Para autenticar e gerenciar autores/admins.
-
 posts: Para armazenar os posts do blog.
-
 categorias: Para classificar os posts.
-
 comentarios: Para permitir feedback dos leitores.
 
 2. Modelos (Models)
@@ -103,7 +113,6 @@ class PostView {
 5. Rotas (routes.php)
 Configurações de rotas simples para direcionar URLs:
 $rota = $_GET['rota'] ?? 'home';
-
 switch ($rota) {
     case 'listar':
         $controller->listarPosts();
@@ -114,3 +123,22 @@ switch ($rota) {
     default:
         echo "Bem-vindo ao blog!";
 }
+# Cache ou Otimização
+Para reduzir a sobrecarga de requisições ao banco de dados, use pasta de cache para armazenar conteúdo estático gerado automaticamente
+cache/posts/
+├── pagina1.html
+├── pagina2.html
+└── categorias/
+# Arquivo de Logs e Analytics
+Conforme o número de visitantes cresce, você pode implementar logs ou ferramentas de análise
+logs/
+├── acesso.log
+├── erro.log
+└── analytics/
+# Separação de Módulos
+A criação de módulos separados por funcionalidade também ajuda a manter a organização
+modules/
+├── auth/            # Gerenciar login e autenticação
+├── post/            # Funções específicas de posts
+├── comentario/      # Funções de comentários
+└── usuario/         # Gerenciamento de usuários
