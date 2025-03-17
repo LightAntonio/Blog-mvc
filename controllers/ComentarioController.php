@@ -1,0 +1,2 @@
+<?php
+// Lida com comentários

@@ -1,0 +1,3 @@
+<?php
+//Rodapé do blog
+?>

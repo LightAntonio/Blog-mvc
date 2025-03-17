@@ -1,0 +1,2 @@
+<?php
+//Cabeçalho do blog
