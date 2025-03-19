@@ -27,7 +27,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         echo "<p>Erro ao criar post.</p>";
     }
 }
+
 ?>
+
+<!--para incluir um dropdown de categorias-->
+<label>Categoria:</label>
+<select name="categoria_id">
+    <option value="">Selecione</option>
+    <?php foreach (CategoriaModel::listar() as $categoria) : ?>
+        <option value="<?= $categoria['id'] ?>"><?= $categoria['nome'] ?></option>
+    <?php endforeach; ?>
+</select>
+<!-- THE END para incluir um dropdown de categorias -->
 
 <h2>Criar Novo Post</h2>
 <form method="POST" enctype="multipart/form-data">

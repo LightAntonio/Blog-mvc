@@ -18,12 +18,13 @@ class PostModel {
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
 
-    public static function criar($titulo, $conteudo, $autor, $imagem) {
+    public static function criar($titulo, $conteudo, $autor, $imagem, $categoria_id) {
         $conn = Database::conectar();
-        $sql = "INSERT INTO posts (titulo, conteudo, autor, imagem, data_criacao) VALUES (?, ?, ?, ?, NOW())";
+        $sql = "INSERT INTO posts (titulo, conteudo, autor, imagem, categoria_id, data_criacao) VALUES (?, ?, ?, ?, ?, NOW())";
         $stmt = $conn->prepare($sql);
-        return $stmt->execute([$titulo, $conteudo, $autor, $imagem]);
+        return $stmt->execute([$titulo, $conteudo, $autor, $imagem, $categoria_id]);
     }
+    
 
     public static function atualizar($id, $titulo, $conteudo, $imagem = null) {
         $conn = Database::conectar();
@@ -44,5 +45,14 @@ class PostModel {
         $stmt = $conn->prepare($sql);
         return $stmt->execute([$id]);
     }
+    // Função para Listar Posts por Categoria
+    public static function listarPorCategoria($categoria_id) {
+        $conn = Database::conectar();
+        $sql = "SELECT * FROM posts WHERE categoria_id = ?";
+        $stmt = $conn->prepare($sql);
+        $stmt->execute([$categoria_id]);
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+    
 }
 ?>

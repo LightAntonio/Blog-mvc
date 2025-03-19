@@ -195,3 +195,6 @@ modules/
 ✔ Editar posts existentes 🛠
 ✔ Excluir posts ❌
 ✔ Proteção para admin 🔒
+✔ CRUD de Categorias 📂
+✔ Associação de Posts às Categorias 🔗
+✔ Categorias na Listagem de Posts 🏷
