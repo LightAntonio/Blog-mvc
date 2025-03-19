@@ -1,0 +1,2 @@
+
+error_log(date('[Y-m-d H:i:s]') . " Erro crítico no sistema!\n", 3, 'logs/erro.log');

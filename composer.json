@@ -1,0 +1,15 @@
+{
+    "autoload": {
+      "psr-4": {
+        "App\\Models\\": "models/",
+        "App\\Controllers\\": "controllers/",
+        "App\\Helpers\\": "helpers/"
+      }
+    }
+  }
+  
+  /*
+  Depois, rode
+  composer dump-autoload
+  Assim, evita require/include manuais!
+  */

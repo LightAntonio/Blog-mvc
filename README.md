@@ -39,16 +39,46 @@ blog-mvc/
         ├── imagens/
         ├── videos/
         └── documentos/
+    └── uploads /
+        
 ├── helpers 
     ├── formataData.php            # Para formatar datas.
     └── sanitizaInput.php          #Para sanitizar entradas de usuários.
     └── slug.php                   #Para gerar slugs de URLs amigáveis.
-routes/
+├── routes/
     ├── web.php          # Rotas principais (páginas públicas)
     ├── api.php          # Rotas para API (caso use JSON)
     ├── admin.php        # Rotas de administração
     └── auth.php         # Rotas de autenticação (login, logout)
-└── .htaccess                 # Configuração de URL amigável (para Apache)
+├── logs/
+    ├── acesso.log
+    ├── erro.log
+    └── analytics/
+├── modules/
+    ├── auth/            # Gerenciar login e autenticação
+    ├── post/            # Funções específicas de posts
+    ├── comentario/      # Funções de comentários
+    └── usuario/         # Gerenciamento de usuários
+
+├── middlewares/
+│   ├── AuthMiddleware.php   # Middleware para autenticação
+│   ├── AdminMiddleware.php  # Middleware para admin (se necessário)
+
+├── admin/
+│   │   ├── dashboard.php   # Página inicial do painel
+│   │   ├── posts.php       # Gerenciar posts
+│   │   ├── usuarios.php    # Gerenciar usuários
+│   │   ├── comentarios.php # Moderação de comentários
+│   │   ├── categorias.php  # Gerenciar categorias
+│   │   ├── config.php      # Configurações gerais
+│   │   ├── login.php       # Tela de login do admin
+│   │   ├── layout/
+│   │   │   ├── header.php  # Cabeçalho do admin
+│   │   │   ├── sidebar.php # Menu lateral
+│   │   │   ├── footer.php  # Rodapé do admin
+composer.json
+.htaccess                 # Configuração de URL amigável (para Apache)
+
 # Detalhes de Cada Componente
 1. Banco de Dados
 O banco pode conter as seguintes tabelas principais:
@@ -131,22 +161,37 @@ switch ($rota) {
     default:
         echo "Bem-vindo ao blog!";
 }
-# Cache ou Otimização
+6. Cache ou Otimização
 Para reduzir a sobrecarga de requisições ao banco de dados, use pasta de cache para armazenar conteúdo estático gerado automaticamente
 cache/posts/
 ├── pagina1.html
 ├── pagina2.html
 └── categorias/
-# Arquivo de Logs e Analytics
+7. Arquivo de Logs e Analytics
 Conforme o número de visitantes cresce, você pode implementar logs ou ferramentas de análise
 logs/
 ├── acesso.log
 ├── erro.log
 └── analytics/
-# Separação de Módulos
+8. Separação de Módulos
 A criação de módulos separados por funcionalidade também ajuda a manter a organização
 modules/
 ├── auth/            # Gerenciar login e autenticação
 ├── post/            # Funções específicas de posts
 ├── comentario/      # Funções de comentários
 └── usuario/         # Gerenciamento de usuários
+# ✅ Agora o que já temos funcionando?
+
+✔ Upload de imagens nos posts 📸
+✔ Atualização de imagem na edição de posts 🛠
+✔ Exibição das imagens na listagem de posts 👀
+✔ Painel Admin separado do site
+✔ Rotas organizadas (admin.php)
+✔ Middleware para restringir acesso
+✔ Dashboard inicial com atalhos
+✔ Layout básico (header, sidebar, footer)
+✔ Página para listar posts 📌
+✔ Botão para criar novos posts ✍
+✔ Editar posts existentes 🛠
+✔ Excluir posts ❌
+✔ Proteção para admin 🔒
