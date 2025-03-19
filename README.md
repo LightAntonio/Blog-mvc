@@ -27,19 +27,27 @@ blog-mvc/
         └── 2026/
 
 ├── controllers/
-│   ├── PostController.php   # Gerencia lógica dos posts
-│   ├── UsuarioController.php # Gerencia lógica dos usuários
-│   ├── ComentarioController.php # Lida com comentários
-│   └── CategoriaController.php # Lida com categorias
+    ├── PostController.php   # Gerencia lógica dos posts
+    ├── UsuarioController.php # Gerencia lógica dos usuários
+    ├── ComentarioController.php # Lida com comentários
+    └── CategoriaController.php # Lida com categorias
 ├── public/
-│   ├── index.php            # Ponto de entrada da aplicação
-│   └── assets/
-│       ├── css/             # Arquivos de estilo
-│       └── js/              # Scripts JavaScript
+    ├── index.php            # Ponto de entrada da aplicação
+    └── assets/
+        ├── css/             # Arquivos de estilo
+        └── js/              # Scripts JavaScript
         ├── imagens/
         ├── videos/
         └── documentos/
-├── routes.php                # Gerenciamento de rotas
+├── helpers 
+    ├── formataData.php            # Para formatar datas.
+    └── sanitizaInput.php          #Para sanitizar entradas de usuários.
+    └── slug.php                   #Para gerar slugs de URLs amigáveis.
+routes/
+    ├── web.php          # Rotas principais (páginas públicas)
+    ├── api.php          # Rotas para API (caso use JSON)
+    ├── admin.php        # Rotas de administração
+    └── auth.php         # Rotas de autenticação (login, logout)
 └── .htaccess                 # Configuração de URL amigável (para Apache)
 # Detalhes de Cada Componente
 1. Banco de Dados
