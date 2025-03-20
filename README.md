@@ -15,16 +15,29 @@ blog-mvc/
 │       ├── listar.php      # Exibe lista de posts
 │       ├── ver.php         # Exibe um post individual
 │       └── criar.php       # Formulário para criar post
-    views/postsCategoria/
+    └── postsCategoria/
         ├── tecnologia/
+        │   ├── 2025/
+        │   │   ├── janeiro/
+        │   │   │   ├── post1.php
+        │   │   │   ├── post2.php
+        │   │   └── fevereiro/
+        │   │       ├── post3.php
         ├── saude/
-        └── viagens/
-    views/postsAno/
-        ├── 2025/
-        │   ├── janeiro/
-        │   ├── fevereiro/
-        │   └── marco/
-        └── 2026/
+            ├── 2025/
+        │   │   ├── janeiro/
+        │   │   │   ├── post1.php
+        │   │   │   ├── post2.php
+        │   │   └── fevereiro/
+        │   │       ├── post3.php
+        ├── viagens/
+
+    └── rascunhos/
+        ├── tecnologia/
+        │   ├── post-tecnologia1.txt
+        │   ├── post-tecnologia2.txt
+        ├── saude/
+        │   ├── post-saude1.txt
 
 ├── controllers/
     ├── PostController.php   # Gerencia lógica dos posts
